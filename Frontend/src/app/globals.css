@@ -18,7 +18,7 @@
 .animate-marquee {
     display: flex;
     width: max-content;
-    animation: marquee 40s linear infinite;
+    animation: marquee 50s linear infinite;
 }
 
 .animate-marquee:hover {
@@ -65,4 +65,19 @@
 
 .animation-delay-400 {
     animation-delay: 0.4s;
+}
+
+@layer utilities {
+    .reveal-text {
+        background: linear-gradient(to right, #fff 50%, rgba(255, 255, 255, 0.1) 50%);
+        background-size: 200% 100%;
+        background-position-x: 100%;
+        color: transparent;
+        background-clip: text;
+        transition: background-position-x 0.5s ease-out;
+    }
+
+    .reveal-active {
+        background-position-x: 0%;
+    }
 }
