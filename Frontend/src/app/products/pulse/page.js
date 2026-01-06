@@ -5,118 +5,105 @@ import Link from 'next/link';
 
 export default function PulsePage() {
     return (
-        <main className="bg-[#0D110F] min-h-screen text-slate-100 selection:bg-[#7DFF7D] selection:text-[#0D110F]">
+        <main
+            className="bg-[#0D110F] min-h-screen text-slate-100 selection:bg-[#7DFF7D] selection:text-[#0D110F] overflow-x-hidden">
 
-            {/* Precision Nav */}
+            {/* Nav */}
             <nav className="fixed top-0 w-full z-50 bg-[#0D110F]/80 backdrop-blur-xl px-6 py-4 border-b border-white/5">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <Link href="/" className="flex items-center gap-2 group">
                         <span
                             className="text-slate-400 group-hover:text-[#7DFF7D] transition-colors font-bold text-xl">←</span>
-                        <span
-                            className="font-bold tracking-tighter text-white text-xl uppercase tracking-widest">SpicaLab</span>
+                        <div className="flex items-center gap-2">
+                            <img src="/PulseLogoSvg.svg" alt="Pulse Logo" className="w-6 h-6 object-contain"/>
+                            <span
+                                className="font-bold tracking-tighter text-white text-xl uppercase tracking-[0.2em]">Pulse</span>
+                        </div>
                     </Link>
                     <button
-                        className="bg-[#7DFF7D] text-[#0D110F] px-6 py-2 rounded-full font-bold hover:shadow-[0_0_20px_rgba(125,255,125,0.4)] transition-all text-sm">
-                        Get Early Access
+                        className="bg-[#7DFF7D] text-[#0D110F] px-5 py-2 rounded-full font-bold text-xs uppercase tracking-widest">
+                        Join
                     </button>
                 </div>
             </nav>
 
-            {/* Hero - The "Peace of Mind" Vibe */}
-            <section className="pt-40 pb-32 px-6 max-w-7xl mx-auto text-center">
+            {/* Hero Section */}
+            <section className="relative pt-48 pb-32 px-6 max-w-7xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+                    <div className="text-left">
+                        <h1 className="text-7xl md:text-[9rem] font-bold tracking-tighter text-white mb-10 leading-[0.8] mix-blend-difference">
+                            Stop <br/>Counting.<br/><span className="text-[#7DFF7D]">Start Living.</span>
+                        </h1>
+                        <p className="text-2xl text-slate-400 max-w-sm leading-tight mb-12">
+                            The invisible assistant for your money. No math, no spreadsheets, no stress.
+                        </p>
+                    </div>
+
+                    {/* The 3D Render Image */}
+                    <div className="relative">
+                        <div className="relative w-full aspect-square lg:scale-125 lg:translate-x-20">
+                            <img
+                                src="/3dRender.jpg"
+                                alt="Abstract Rhythm"
+                                className="w-full h-full object-cover rounded-[4rem] shadow-[0_0_100px_rgba(125,255,125,0.1)] grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+                            />
+                            {/* Subtle overlay to make it blend into the black background */}
+                            <div
+                                className="absolute inset-0 bg-gradient-to-t from-[#0D110F] via-transparent to-transparent opacity-60"></div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Background Ambient Glow */}
                 <div
-                    className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] mb-8 text-slate-400">
-                    <span className="w-1.5 h-1.5 bg-[#7DFF7D] rounded-full animate-pulse"></span>
-                    Always in Rhythm
-                </div>
-                <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-white mb-8 leading-[0.85]">
-                    Track less.<br/>Know <span className="text-[#7DFF7D]">more.</span>
-                </h1>
-                <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-12">
-                    Pulse is the invisible assistant for your finances. It watches your spending in real-time so you
-                    never have to open a spreadsheet again.
-                </p>
-                <div className="flex justify-center gap-4">
-                    <div className="w-12 h-1 bg-[#7DFF7D] rounded-full"></div>
-                    <div className="w-4 h-1 bg-white/10 rounded-full"></div>
-                    <div className="w-4 h-1 bg-white/10 rounded-full"></div>
-                </div>
+                    className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#7DFF7D]/10 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             </section>
 
-            {/* The "Experience" Section - Replacing Tech with Lifestyle Benefits */}
+            {/* Rest of your sections (Invisible UI, Intermission, etc) */}
             <section className="py-24 px-6 border-t border-white/5">
-                <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
-
-                    {/* Benefit 1 */}
-                    <div className="space-y-6">
-                        <div className="text-4xl text-[#7DFF7D]">✨</div>
-                        <h3 className="text-2xl font-bold">Zero Manual Work</h3>
-                        <p className="text-slate-400 leading-relaxed">
-                            Stop typing in every coffee and gas station visit. Pulse sees the notification, logs the
-                            price, and categorizes it before you've even put your phone back in your pocket.
-                        </p>
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+                    <div className="space-y-12">
+                        <div>
+                            <h2 className="text-4xl font-bold mb-4">You spend. We note.</h2>
+                            <p className="text-slate-400 text-lg">Buy a coffee? Pulse knows. Pay rent? Pulse notes it.
+                                You don't have to lift a finger.</p>
+                        </div>
+                        <div>
+                            <h2 className="text-4xl font-bold mb-4">Know your limit.</h2>
+                            <p className="text-slate-400 text-lg">One glance shows you exactly how much you have left
+                                for the month. Simple as a heartbeat.</p>
+                        </div>
                     </div>
 
-                    {/* Benefit 2 */}
-                    <div className="space-y-6">
-                        <div className="text-4xl text-[#7DFF7D]">🛡️</div>
-                        <h3 className="text-2xl font-bold">Privacy by Default</h3>
-                        <p className="text-slate-400 leading-relaxed">
-                            Your bank data is yours. We don't want it, and we don't see it. Everything happens privately
-                            on your device. Secure, local, and invisible.
-                        </p>
+                    <div className="bg-[#141816] rounded-[3rem] p-10 border border-white/5 shadow-2xl">
+                        <p className="text-xs uppercase tracking-widest text-slate-500 mb-2">Safe to spend</p>
+                        <h3 className="text-6xl font-light text-[#7DFF7D] mb-8">$1,240.00</h3>
+                        <div className="space-y-4 opacity-40">
+                            <div className="h-px bg-white/10 w-full"></div>
+                            <div className="flex justify-between text-sm italic">
+                                <span>Grocery Store</span><span>-$42.00</span></div>
+                            <div className="flex justify-between text-sm italic">
+                                <span>Coffee Shop</span><span>-$5.50</span></div>
+                        </div>
                     </div>
-
-                    {/* Benefit 3 */}
-                    <div className="space-y-6">
-                        <div className="text-4xl text-[#7DFF7D]">📈</div>
-                        <h3 className="text-2xl font-bold">Instant Clarity</h3>
-                        <p className="text-slate-400 leading-relaxed">
-                            A beautiful, simple dashboard that shows you exactly where your money goes. No confusing
-                            charts—just the truth about your spending rhythm.
-                        </p>
-                    </div>
-
                 </div>
             </section>
 
-            {/* The "Pulse" Visual Break */}
-            <section className="py-20 overflow-hidden bg-[#1A2F23]/20">
-                <div className="flex items-center gap-8 animate-marquee whitespace-nowrap">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                        <span key={i}
-                              className="text-7xl md:text-9xl font-black text-white/5 uppercase tracking-tighter italic">
-                            Effortless • Accurate • Private • Automated •
-                        </span>
-                    ))}
-                </div>
+            {/* Final CTA */}
+            <section className="py-48 px-6 text-center bg-[#7DFF7D] text-[#0D110F]">
+                <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-12 leading-none">Money, made
+                    quiet.</h2>
+                <button
+                    className="bg-[#0D110F] text-white px-12 py-6 rounded-full font-black hover:scale-105 transition-all uppercase tracking-widest text-sm">
+                    Get Early Access
+                </button>
             </section>
 
-            {/* The "Why" Section */}
-            <section className="py-32 px-6">
-                <div
-                    className="max-w-4xl mx-auto bg-white/5 p-12 md:p-20 rounded-[3rem] border border-white/10 text-center relative overflow-hidden">
-                    {/* Background Pulse Line decoration */}
-                    <svg className="absolute bottom-0 left-0 w-full h-32 opacity-10 pointer-events-none"
-                         viewBox="0 0 1000 100" preserveAspectRatio="none">
-                        <path d="M0,50 Q100,20 200,50 T400,50 T600,50 T800,20 T1000,50" fill="none" stroke="#7DFF7D"
-                              strokeWidth="2"/>
-                    </svg>
-
-                    <h2 className="text-3xl md:text-5xl font-bold mb-8 relative z-10 italic">"Finances should be felt,
-                        not managed."</h2>
-                    <p className="text-lg text-slate-400 mb-12 relative z-10 max-w-xl mx-auto">
-                        We built Pulse for the people who want to be in control of their money without spending hours
-                        every week looking at apps.
-                    </p>
-                    <button
-                        className="relative z-10 bg-white text-[#0D110F] px-12 py-5 rounded-full font-black hover:bg-[#7DFF7D] transition-colors uppercase tracking-widest text-sm">
-                        Join the Rhythm
-                    </button>
-                </div>
-            </section>
-
+            {/* Footer */}
+            <footer
+                className="py-10 text-center border-t border-white/5 opacity-40 text-[10px] uppercase tracking-widest">
+                © 2026 SpicaLab — Less math, more life.
+            </footer>
         </main>
     );
 }

@@ -46,14 +46,6 @@ export default function AgoraPage() {
                         <div className="flex flex-wrap gap-4">
                             <div
                                 className="bg-black text-white px-8 py-3 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-slate-800 transition-all">
-                                <div className="text-2xl"></div>
-                                <div className="text-left leading-none">
-                                    <p className="text-[10px] uppercase">Download on the</p>
-                                    <p className="text-lg font-bold">App Store</p>
-                                </div>
-                            </div>
-                            <div
-                                className="bg-black text-white px-8 py-3 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-slate-800 transition-all">
                                 <div className="text-2xl">▶</div>
                                 <div className="text-left leading-none">
                                     <p className="text-[10px] uppercase">Get it on</p>

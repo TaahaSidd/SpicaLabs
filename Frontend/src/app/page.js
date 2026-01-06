@@ -19,7 +19,7 @@ export default function Home() {
     }, []);
 
     const apps = [
-        {name: 'Agora', status: 'Live'}, {name: 'Pulse', status: 'Live'}, {name: 'SafeRun', status: 'Coming Soon'},
+        {name: 'Agora', status: 'Live'}, {name: 'Pulse', status: 'Live'},
         {name: 'AirVista', status: 'Coming Soon'},
         {name: 'JogSmart', description: 'Run with confidence. Safer routes, mapped by the community.'},
         {name: 'OOHify', description: 'Run with confidence. Safer routes, mapped by the community.'}
@@ -97,27 +97,22 @@ export default function Home() {
             </h2>
         </section>
 
-        {/* Apps Showcase - MINIMALIST PILL DESIGN */}
+        {/* Apps Showcase */}
         <section id="apps"
                  className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-900 via-[#274C77] to-slate-900">
-            {/* Animated background elements */}
             <div className="absolute inset-0 opacity-20">
                 <div
                     className="absolute top-20 left-10 w-72 h-72 bg-[#06AED5] rounded-full blur-3xl animate-pulse"></div>
-                <div
-                    className="absolute bottom-20 right-10 w-96 h-96 bg-[#06AED5] rounded-full blur-3xl animate-pulse"
-                    style={{animationDelay: '1s'}}></div>
+                <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#06AED5] rounded-full blur-3xl animate-pulse"
+                     style={{animationDelay: '1s'}}></div>
             </div>
 
             <div className="relative z-10">
-                {/* Header */}
                 <div className="text-center mb-16 px-6">
-                    <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-                        Our Ecosystem
-                    </h2>
+                    <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">Our Ecosystem</h2>
                 </div>
 
-                {/* Scrolling Apps Marquee */}
+                {/* Scrolling Marquee */}
                 <div className="flex overflow-hidden">
                     <div className="animate-marquee flex items-center">
                         {[...apps, ...apps, ...apps].map((app, i) => {
@@ -127,7 +122,6 @@ export default function Home() {
                             const isOohify = app.name === 'OOHify';
                             const isAirVista = app.name === 'AirVista';
 
-                            // Determine the path based on app name
                             const getPath = () => {
                                 if (isAgora) return "/products/agora";
                                 if (isPulse) return "/products/pulse";
@@ -137,30 +131,24 @@ export default function Home() {
                                 return "#";
                             };
 
-                            // This is the actual UI of the pill
                             const PillContent = (
                                 <div
-                                    className="group flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/10 rounded-full px-8 py-5 transition-all duration-500 hover:bg-white/20 hover:scale-105 cursor-pointer">
-                                    {/* ICON LOGIC */}
+                                    className="group flex items-center gap-4 bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl px-8 py-5 transition-all duration-500 hover:bg-white/20 hover:scale-105 cursor-pointer">
                                     <div className="shrink-0">
                                         {isAgora ? (
-                                            <svg width="32" height="32" viewBox="460 370 310 480" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg"
-                                                 className="transition-transform duration-500 group-hover:scale-110">
-                                                <path
-                                                    d="M528 377C531.743 378.45 534.972 380.109 538.359 382.273C541.466 384.255 544.75 386.375 560.58 396.566 574.324 406.095 587.39 416.698C599.83 426.701 614.25 441C622.676 449.355 635 464 658.607 493.546 675.357 521.626 691 550C725.75 613.12 746.096 675.385 752.657 743.559C754.793 763.054 756.433 786.897 757.635 805.621 758.336 824.5 758.466 832.219 754 841C744.033 849.058 720 847C701.913 844.804 666.39 838.39 653 825C651.583 812.74 650.516 802.62 647.938 776.375C644.719 752.484 643 739.938 639.8 713.553 627.62 661.279 612.89 604.665 594.421 562.469 562 524C554.351 514.879 537.868 496.977 527.005 477.963C527.219 461.277 527.451 434.854 528 377Z"
-                                                    fill="white"/>
-                                                <path
-                                                    d="M524 597C556.754 637.933 569.622 710.235 576.735 760.382C579.199 777.473 580.785 795.183 582 803C582.75 815.188 583.265 824.649 583 827C574.793 830.516 561.109 834.121 539.296 840.046C515.041 845.195 502.063 845.375 498.971 845.488C490.434 845.586 477.527 837.832 474.277 833.77C464.368 820.042 473.463 781.439 475 765C477.054 743.297 483 708C488.749 677.831 509 627C520.156 603.248 524 597Z"
-                                                    fill="white"/>
-                                            </svg>
+                                            <div
+                                                className="w-8 h-8 transition-transform duration-500 group-hover:scale-110 flex items-center justify-center">
+                                                <img
+                                                    src="/AgoraAppSVG.svg"
+                                                    alt="Agora Logo"
+                                                    className="w-full h-full object-contain scale-350"/>
+                                            </div>
                                         ) : isPulse ? (
-                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7DFF7D"
-                                                 strokeWidth="2.5"
-                                                 className="transition-transform duration-500 group-hover:scale-110">
-                                                <path d="M22 12h-4l-3 9L9 3l-3 9H2" strokeLinecap="round"
-                                                      strokeLinejoin="round"/>
-                                            </svg>
+                                            <div
+                                                className="w-8 h-8 transition-transform duration-500 group-hover:scale-110 flex items-center justify-center">
+                                                <img src="/PulseLogoSvg.svg" alt="Pulse Logo"
+                                                     className="w-full h-full object-contain"/>
+                                            </div>
                                         ) : isJogSmart ? (
                                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FACC15"
                                                  strokeWidth="2.5"
@@ -170,7 +158,6 @@ export default function Home() {
                                                       strokeLinejoin="round"/>
                                             </svg>
                                         ) : isOohify ? (
-                                            /* Added OOHify Billboard/Terminal Icon */
                                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF3E00"
                                                  strokeWidth="2.5"
                                                  className="transition-transform duration-500 group-hover:scale-110">
@@ -187,25 +174,17 @@ export default function Home() {
                                             </svg>
                                         ) : (
                                             <span
-                                                className="text-white/30 text-2xl font-bold uppercase tracking-tighter group-hover:text-white transition-colors">
-                                {app.name[0]}
-                            </span>
+                                                className="text-white/30 text-2xl font-bold uppercase tracking-tighter group-hover:text-white transition-colors">{app.name[0]}</span>
                                         )}
                                     </div>
-
-                                    {/* NAME */}
-                                    <h3 className="text-2xl font-bold text-white tracking-tight">
-                                        {app.name}
-                                    </h3>
+                                    <h3 className="text-2xl font-bold text-white tracking-tight">{app.name}</h3>
                                 </div>
                             );
 
                             return (
                                 <div key={i} className="flex-shrink-0 mx-4">
                                     {getPath() !== "#" ? (
-                                        <Link href={getPath()} className="no-underline">
-                                            {PillContent}
-                                        </Link>
+                                        <Link href={getPath()} className="no-underline">{PillContent}</Link>
                                     ) : (
                                         PillContent
                                     )}
@@ -215,10 +194,9 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* CTA Footer */}
                 <div className="text-center mt-20">
                     <button
-                        className="px-10 py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full font-bold hover:bg-white hover:text-[#274C77] transition-all hover:scale-105 shadow-2xl">
+                        className="px-10 py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-2xl font-bold hover:bg-white hover:text-[#274C77] transition-all hover:scale-105 shadow-2xl">
                         View All Projects
                     </button>
                 </div>
@@ -248,7 +226,7 @@ export default function Home() {
                     {/* The Image Container for Step 1 */}
                     <div className="relative group overflow-hidden rounded-3xl h-80 border border-slate-200 shadow-lg">
                         <img
-                            src="/Apps.jpg"
+                            src="/GalaxyAppList.png"
                             alt="Browsing SpicaLab Apps"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
