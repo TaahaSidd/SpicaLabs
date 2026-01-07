@@ -29,22 +29,36 @@ export default function Home() {
         {/* Navigation - Transparent */}
         <nav
             className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-8 py-6 max-w-7xl mx-auto">
-            <div className="flex items-center gap-3">
-                <svg width="48" height="48" viewBox="0 0 142 142" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="70.7107" cy="70.7102" r="25.7654" transform="rotate(-45 70.7107 70.7102)"
-                            fill="white"/>
-                    <path
-                        d="M35.3553 35.3553L66.6806 63.7567C68.9673 65.83 72.454 65.83 74.7408 63.7567L106.066 35.3553L77.6646 66.6806C75.5913 68.9673 75.5913 72.454 77.6646 74.7408L106.066 106.066L74.7408 77.6646C72.454 75.5913 68.9673 75.5913 66.6806 77.6646L35.3553 106.066L63.7567 74.7408C65.83 72.454 65.83 68.9673 63.7567 66.6806L35.3553 35.3553Z"
-                        fill="#274C77"/>
-                </svg>
-                <span className="font-bold text-2xl tracking-tight text-white drop-shadow-lg">SpicaLab</span>
-            </div>
-            <div className="flex gap-8 text-sm font-semibold">
-                <a href="#apps" className="text-white/90 hover:text-white transition-colors drop-shadow-md">Apps</a>
-                <a href="#about"
-                   className="text-white/90 hover:text-white transition-colors drop-shadow-md">About</a>
+            <Link href="/" className="flex items-center gap-3 group">
+                <div className="relative">
+                    <svg width="48" height="48" viewBox="0 0 142 142" fill="none" xmlns="http://www.w3.org/2000/svg"
+                         className="transition-transform duration-500 group-hover:rotate-90">
+                        <circle cx="70.7107" cy="70.7102" r="25.7654" transform="rotate(-45 70.7107 70.7102)"
+                                fill="white"/>
+                        <path
+                            d="M35.3553 35.3553L66.6806 63.7567C68.9673 65.83 72.454 65.83 74.7408 63.7567L106.066 35.3553L77.6646 66.6806C75.5913 68.9673 75.5913 72.454 77.6646 74.7408L106.066 106.066L74.7408 77.6646C72.454 75.5913 68.9673 75.5913 66.6806 77.6646L35.3553 106.066L63.7567 74.7408C65.83 72.454 65.83 68.9673 63.7567 66.6806L35.3553 35.3553Z"
+                            fill="#274C77"/>
+                    </svg>
+                </div>
+                <span className="font-bold text-2xl tracking-tighter text-white drop-shadow-lg">SpicaLab</span>
+            </Link>
+
+            <div className="flex items-center gap-10">
+                <div className="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-[0.2em]">
+                    <Link href="/products/gallery"
+                          className="text-white/80 hover:text-white transition-all drop-shadow-md">
+                        The Lab
+                    </Link>
+                    <Link href="/about" className="text-white/80 hover:text-white transition-all drop-shadow-md">
+                        The Architect
+                    </Link>
+                </div>
+
+                {/* Contact stays as a scroll-link or mailto */}
                 <a href="#contact"
-                   className="text-white/90 hover:text-white transition-colors drop-shadow-md">Contact</a>
+                   className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-[#274C77] transition-all">
+                    Contact
+                </a>
             </div>
         </nav>
 
@@ -195,10 +209,12 @@ export default function Home() {
                 </div>
 
                 <div className="text-center mt-20">
-                    <button
-                        className="px-10 py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-2xl font-bold hover:bg-white hover:text-[#274C77] transition-all hover:scale-105 shadow-2xl">
-                        View All Projects
-                    </button>
+                    <Link href="/products/gallery">
+                        <button
+                            className="px-10 py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-2xl font-bold hover:bg-white hover:text-[#274C77] transition-all hover:scale-105 shadow-2xl">
+                            View All Projects
+                        </button>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -356,26 +372,58 @@ export default function Home() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    <button
-                        className="group relative px-10 py-5 bg-[#274C77] text-white rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl">
-                        {/* Inner Glow Effect on Hover */}
-                        <div
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                        Explore the Ecosystem
-                    </button>
+                    <Link href="/products">
+                        <button
+                            className="group relative px-10 py-5 bg-[#274C77] text-white rounded-full font-bold text-lg overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl">
+                            <div
+                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                            Explore the Ecosystem
+                        </button>
+                    </Link>
 
-                    <button
-                        className="px-10 py-5 bg-transparent text-[#274C77] border-2 border-[#274C77]/10 rounded-full font-bold text-lg hover:bg-[#274C77]/5 transition-all">
+                    <a
+                        href="https://github.com/TaahaSidd/SpicaLabs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-10 py-5 bg-transparent text-[#274C77] border-2 border-[#274C77]/10 rounded-full font-bold text-lg hover:bg-[#274C77]/5 transition-all"
+                    >
                         View on GitHub
-                    </button>
+                    </a>
                 </div>
 
-                {/* Floating Accent Elements */}
-                <div className="mt-16 flex justify-center items-center gap-8 opacity-20 grayscale">
-                    {/* You can put tiny logos here later, for now just decorative dots */}
-                    <div className="w-2 h-2 bg-[#274C77] rounded-full"></div>
-                    <div className="w-2 h-2 bg-[#06AED5] rounded-full"></div>
-                    <div className="w-2 h-2 bg-[#274C77] rounded-full"></div>
+                {/* LOGO AREA - Enhanced Visibility */}
+                <div className="mt-24 flex flex-col items-center">
+                    <p className="text-[10px] uppercase tracking-[0.4em] text-slate-400 mb-6 font-bold">Featured in the
+                        Lab</p>
+
+                    {/* Frosted "Safe Zone" Container */}
+                    <div
+                        className="inline-flex justify-center items-center gap-12 px-12 py-8 bg-slate-900/5 backdrop-blur-md rounded-[2rem] border border-slate-200/50 shadow-sm">
+
+                        {/* Pulse Logo - Now visible on any background */}
+                        <div className="flex flex-col items-center gap-2 group cursor-default">
+                            <img
+                                src="/PulseLogoSvg.svg"
+                                alt="Pulse"
+                                className="w-10 h-10 object-contain drop-shadow-sm group-hover:scale-110 transition-transform"
+                            />
+                            <span
+                                className="text-[9px] font-black tracking-[0.2em] uppercase text-slate-400 group-hover:text-[#7DFF7D] transition-colors">Pulse</span>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="w-px h-8 bg-slate-200"></div>
+
+                        {/* Agora Logo */}
+                        <div className="flex flex-col items-center gap-2 group cursor-default">
+                            <div
+                                className="w-10 h-10 bg-[#008BFD] rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform">
+                                A
+                            </div>
+                            <span
+                                className="text-[9px] font-black tracking-[0.2em] uppercase text-slate-400 group-hover:text-[#008BFD] transition-colors">Agora</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -398,45 +446,52 @@ export default function Home() {
                                         d="M35.3553 35.3553L66.6806 63.7567C68.9673 65.83 72.454 65.83 74.7408 63.7567L106.066 35.3553L77.6646 66.6806C75.5913 68.9673 75.5913 72.454 77.6646 74.7408L106.066 106.066L74.7408 77.6646C72.454 75.5913 68.9673 75.5913 66.6806 77.6646L35.3553 106.066L63.7567 74.7408C65.83 72.454 65.83 68.9673 63.7567 66.6806L35.3553 35.3553Z"
                                         fill="#F5FBEF"/>
                                 </svg>
-                                {/* Little "shimmer" dot */}
                                 <div
-                                    className="absolute -top-1 -right-1 w-2 h-2 bg-[#06AED5] rounded-full animate-pulse"></div>
+                                    className="absolute -top-1 -right-1 w-2 h-2 bg-[#7DFF7D] rounded-full animate-pulse"></div>
                             </div>
                             <span className="font-bold text-2xl tracking-tighter text-[#274C77]">SpicaLab</span>
                         </div>
                         <p className="text-slate-500 leading-relaxed max-w-xs text-lg">
                             Crafting intentional digital tools for a more focused world.
                         </p>
+                        {/* Status Indicator */}
+                        <div
+                            className="mt-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#06AED5]">
+                            <span className="w-2 h-px bg-[#06AED5]"></span>
+                            Available for new experiments
+                        </div>
                     </div>
 
                     {/* Link Columns */}
                     <div>
-                        <h4 className="font-bold text-[#274C77] mb-6 uppercase text-xs tracking-[0.2em]">Products</h4>
+                        <h4 className="font-bold text-[#274C77] mb-6 uppercase text-xs tracking-[0.2em]">Lab Work</h4>
                         <div className="space-y-4 text-slate-500 font-medium">
-                            <a href="#" className="block hover:text-[#06AED5] transition-colors">Agora</a>
-                            <a href="#" className="block hover:text-[#06AED5] transition-colors">Pulse</a>
-                            <a href="#" className="block hover:text-[#06AED5] transition-colors">SafeRun</a>
-                            <a href="#"
-                               className="block hover:text-[#06AED5] transition-colors opacity-50 cursor-not-allowed">AirVista</a>
+                            {/* Assuming your folder structure follows /products/agora */}
+                            <Link href="/products/agora"
+                                  className="block hover:text-[#008BFD] transition-colors">Agora</Link>
+                            <Link href="/products/pulse"
+                                  className="block hover:text-[#7DFF7D] transition-colors">Pulse</Link>
                         </div>
                     </div>
 
                     <div>
                         <h4 className="font-bold text-[#274C77] mb-6 uppercase text-xs tracking-[0.2em]">Studio</h4>
                         <div className="space-y-4 text-slate-500 font-medium">
-                            <a href="#about" className="block hover:text-[#06AED5] transition-colors">Our
-                                Manifesto</a>
-                            <a href="#" className="block hover:text-[#06AED5] transition-colors">Process</a>
-                            <a href="#" className="block hover:text-[#06AED5] transition-colors">Contact</a>
+                            <Link href="/manifesto"
+                                  className="block hover:text-[#06AED5] transition-colors">Manifesto</Link>
+                            {/* Replace with your email */}
+                            <a href="mailto:hello@spicalab.co"
+                               className="block hover:text-[#06AED5] transition-colors">Contact</a>
                         </div>
                     </div>
 
                     <div>
                         <h4 className="font-bold text-[#274C77] mb-6 uppercase text-xs tracking-[0.2em]">Social</h4>
                         <div className="space-y-4 text-slate-500 font-medium">
-                            <a href="#" className="block hover:text-[#06AED5] transition-colors">Twitter / X</a>
-                            <a href="#" className="block hover:text-[#06AED5] transition-colors">GitHub</a>
+                            <a href="https://github.com/TaahaSidd/SpicaLabs" target="_blank" rel="noopener noreferrer"
+                               className="block hover:text-[#06AED5] transition-colors">GitHub</a>
                             <a href="#" className="block hover:text-[#06AED5] transition-colors">LinkedIn</a>
+                            <a href="#" className="block hover:text-[#06AED5] transition-colors">Twitter</a>
                         </div>
                     </div>
                 </div>
@@ -444,14 +499,14 @@ export default function Home() {
                 {/* Bottom Bar */}
                 <div
                     className="pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-slate-400 font-medium">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 text-[11px] uppercase tracking-wider">
                         <span>© 2026 SpicaLab Studio.</span>
                         <span className="hidden md:inline text-slate-200">|</span>
-                        <span>Built for focus.</span>
+                        <span className="text-slate-300">Less BS, More Focus.</span>
                     </div>
-                    <div className="flex gap-8">
-                        <a href="#" className="hover:text-[#274C77] transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-[#274C77] transition-colors">Terms of Service</a>
+                    <div className="flex gap-8 text-[11px] uppercase tracking-wider">
+                        <Link href="/privacy" className="hover:text-[#274C77] transition-colors">Privacy</Link>
+                        <Link href="/terms" className="hover:text-[#274C77] transition-colors">Terms</Link>
                     </div>
                 </div>
             </div>
