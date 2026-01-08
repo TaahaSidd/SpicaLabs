@@ -2,241 +2,250 @@
 
 import React from 'react';
 import Link from 'next/link';
+import {motion} from 'framer-motion';
 
 export default function AgoraPage() {
-    return (
-        <main className="bg-white min-h-screen text-slate-900 selection:bg-[#008BFD] selection:text-white">
+    const scrollToSection = (e, id) => {
+        e.preventDefault();
+        const element = document.getElementById(id);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    };
 
-            {/* Minimal Nav */}
-            <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md px-6 py-4 border-b border-slate-100">
+    return (
+        <main
+            className="bg-white min-h-screen text-slate-900 selection:bg-[#008BFD] selection:text-white font-sans overflow-x-hidden">
+
+            {/* --- NAV --- */}
+            <nav
+                className="fixed top-0 w-full z-[100] bg-white/90 backdrop-blur-md border-b border-slate-100 px-4 md:px-6 py-4">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <Link href="/" className="flex items-center gap-2 group">
-                        <span
-                            className="text-slate-400 group-hover:text-[#008BFD] transition-colors font-bold text-xl">←</span>
-                        <span className="font-bold tracking-tighter text-slate-900 text-xl">SpicaLab</span>
+                        <div
+                            className="w-8 h-8 md:w-9 md:h-9 bg-[#008BFD] rounded-xl flex items-center justify-center text-white font-black text-lg md:text-xl shadow-lg shadow-blue-500/20">A
+                        </div>
+                        <span className="font-bold tracking-tighter text-xl md:text-2xl text-slate-900">Agora</span>
                     </Link>
-                    <div className="flex gap-4">
+                    <div className="flex items-center gap-4 md:gap-6">
+                        <div className="hidden lg:flex gap-8 text-sm font-bold text-slate-500">
+                            <a href="#features" onClick={(e) => scrollToSection(e, 'features')}
+                               className="hover:text-[#008BFD] cursor-pointer transition-colors">Features</a>
+                            <Link href="/products/agora/universities"
+                                  className="hover:text-[#008BFD] transition-colors">Universities</Link>
+                            <a href="#safety" onClick={(e) => scrollToSection(e, 'safety')}
+                               className="hover:text-[#008BFD] cursor-pointer transition-colors">Safety</a>
+                            <Link href="/products/agora"
+                                  className="text-sm font-bold text-slate-500 hover:text-[#008BFD] transition-colors">Back
+                                to App</Link></div>
                         <button
-                            className="hidden md:block px-6 py-2 text-sm font-bold text-slate-600 hover:text-[#008BFD] transition-colors">Safety
-                        </button>
-                        <button
-                            className="bg-[#008BFD] text-white px-6 py-2 rounded-full text-sm font-bold hover:shadow-lg hover:shadow-[#008BFD]/30 transition-all">
-                            Download Now
+                            className="bg-[#008BFD] text-white px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-bold hover:bg-blue-600 transition-all shadow-md">
+                            Get App
                         </button>
                     </div>
                 </div>
             </nav>
 
-            {/* Hero Section */}
-            <section className="pt-32 md:pt-48 pb-20 px-6 max-w-7xl mx-auto">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <div className="text-left">
-                        <div
-                            className="inline-flex items-center gap-2 px-3 py-1 bg-[#008BFD]/10 text-[#008BFD] rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-                            Exclusive to Universities
-                        </div>
-                        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-slate-900 mb-6 leading-[0.9]">
-                            The Campus<br/>Marketplace.
-                        </h1>
-                        <p className="text-xl text-slate-500 max-w-lg mb-10 leading-relaxed">
-                            A secure ecosystem for students to buy, sell, and rent books, electronics, and furniture
-                            within their own college community.
-                        </p>
-
-                        <div className="flex flex-wrap gap-4">
-                            <div
-                                className="bg-black text-white px-8 py-3 rounded-2xl flex items-center gap-3 cursor-pointer hover:bg-slate-800 transition-all">
-                                <div className="text-2xl">▶</div>
-                                <div className="text-left leading-none">
-                                    <p className="text-[10px] uppercase">Get it on</p>
-                                    <p className="text-lg font-bold">Google Play</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Phone Mockup */}
-                    <div className="relative flex justify-center">
-                        <div
-                            className="relative w-[280px] h-[580px] bg-slate-950 rounded-[3rem] border-[12px] border-slate-900 shadow-[0_0_50px_rgba(0,0,0,0.1)] overflow-hidden">
-                            <div className="absolute inset-0 bg-white">
-                                {/* Simulated App UI */}
-                                <div className="p-4 pt-10">
-                                    <div className="flex justify-between items-center mb-6">
-                                        <div className="w-10 h-10 bg-[#008BFD] rounded-full"></div>
-                                        <div className="w-24 h-4 bg-slate-100 rounded-full"></div>
-                                        <div className="w-6 h-6 bg-slate-100 rounded-md"></div>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-3">
-                                        <div className="h-32 bg-slate-50 rounded-2xl"></div>
-                                        <div className="h-32 bg-slate-50 rounded-2xl"></div>
-                                        <div className="h-32 bg-slate-50 rounded-2xl"></div>
-                                        <div className="h-32 bg-slate-50 rounded-2xl"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-slate-900 rounded-b-3xl"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Features Bento Grid */}
-            <section className="py-24 bg-slate-50 px-6">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-12 text-center">Built for the Student Hustle</h2>
-                    <div className="grid md:grid-cols-3 gap-6">
-
-                        {/* Feature 1 */}
-                        <div
-                            className="md:col-span-2 bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden relative group">
-                            <h3 className="text-2xl font-bold mb-4">Secure .edu Verification</h3>
-                            <p className="text-slate-500 max-w-sm">Every user is verified via their college email. Buy
-                                and sell with peers, not strangers. No more sketchy off-campus meetups.</p>
-                            <div
-                                className="absolute bottom-0 right-0 p-8 text-6xl opacity-10 group-hover:opacity-20 transition-opacity italic font-black">VERIFIED
-                            </div>
-                        </div>
-
-                        {/* Feature 2 */}
-                        <div className="bg-[#008BFD] p-10 rounded-[2.5rem] text-white">
-                            <h3 className="text-2xl font-bold mb-4 text-white">In-App Negotiation</h3>
-                            <p className="text-blue-100">Our real-time chat system links directly to listings. Make
-                                offers and coordinate campus meetups instantly.</p>
-                        </div>
-
-                        {/* Feature 3 */}
-                        <div className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
-                            <div className="text-3xl mb-4">📚</div>
-                            <h3 className="text-xl font-bold mb-2">Academic Services</h3>
-                            <p className="text-slate-500 text-sm">Need a tutor? Furniture for your dorm? Filter by
-                                category and condition to find exactly what you need in seconds.</p>
-                        </div>
-
-                        {/* Feature 4 */}
-                        <div
-                            className="md:col-span-2 bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col md:flex-row gap-8 items-center">
-                            <div>
-                                <h3 className="text-2xl font-bold mb-4">Direct Exchange</h3>
-                                <p className="text-slate-500">Not everything needs cash. Agora supports item-for-item
-                                    exchanges, perfect for trading textbooks or assignment help.</p>
-                            </div>
-                            <div className="flex gap-2">
-                                <div className="w-12 h-12 bg-green-100 rounded-full"></div>
-                                <div className="w-12 h-12 bg-blue-100 rounded-full"></div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            {/* --- BRAND MISSION SECTION --- */}
-            <section className="py-32 px-6 bg-white">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-[#008BFD] font-bold uppercase tracking-[0.2em] text-sm mb-6">Our Mission</h2>
-                    <h3 className="text-4xl md:text-6xl font-bold tracking-tighter mb-10 leading-[1.1]">
-                        Making university life <br/>
-                        <span className="text-slate-400 italic">accessible for everyone.</span>
-                    </h3>
-                    <p className="text-xl text-slate-600 leading-relaxed mb-12">
-                        Agora was founded on a simple belief: college is expensive enough. We’re building the
-                        infrastructure for a circular campus economy—where textbooks are passed down, dorm furniture
-                        finds a second home, and student skills are the primary currency.
-                    </p>
-                    <div className="h-px w-24 bg-slate-200 mx-auto"></div>
-                </div>
-            </section>
-
-            {/* --- CORE VALUES GRID --- */}
-            <section className="py-24 px-6 border-t border-slate-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid md:grid-cols-3 gap-16">
-                        <div>
-                            <h4 className="font-bold text-xl mb-4 flex items-center gap-2">
-                                <span
-                                    className="w-8 h-8 rounded-lg bg-blue-50 text-[#008BFD] flex items-center justify-center text-sm">01</span>
-                                Trust First
-                            </h4>
-                            <p className="text-slate-500 leading-relaxed">
-                                By restricting access to verified students only, we’ve eliminated the anonymity that
-                                breeds scams. Agora is a neighborhood, not a warehouse.
+            {/* --- HERO --- */}
+            <section
+                className="relative pt-28 md:pt-48 pb-10 md:pb-64 px-6 min-h-[85vh] lg:min-h-[90vh] flex items-center">
+                <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center relative">
+                    <div className="z-10 text-center lg:text-left">
+                        <motion.div initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}}
+                                    transition={{duration: 0.8}}>
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-slate-900 leading-[1.1] mb-6">
+                                The Campus <br/>
+                                <span className="text-[#008BFD]">Marketplace.</span>
+                            </h1>
+                            <p className="text-lg md:text-xl lg:text-2xl text-slate-600 mb-10 max-w-lg mx-auto lg:mx-0 font-medium leading-relaxed">
+                                Securely buy, sell, rent, and exchange items or services within your college community.
                             </p>
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-xl mb-4 flex items-center gap-2">
-                                <span
-                                    className="w-8 h-8 rounded-lg bg-blue-50 text-[#008BFD] flex items-center justify-center text-sm">02</span>
-                                Sustainability
-                            </h4>
-                            <p className="text-slate-500 leading-relaxed">
-                                Every item resold on Agora is one less piece of plastic in a landfill. We’re committed
-                                to reducing the environmental footprint of move-in day.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-xl mb-4 flex items-center gap-2">
-                                <span
-                                    className="w-8 h-8 rounded-lg bg-blue-50 text-[#008BFD] flex items-center justify-center text-sm">03</span>
-                                Student Empowerment
-                            </h4>
-                            <p className="text-slate-500 leading-relaxed">
-                                Whether it’s tutoring or freelance design, we give students a platform to monetize their
-                                talents and gain financial independence.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* --- COMMUNITY STATS (The "Trust" Builder) --- */}
-            <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
-                {/* Decorative background glow */}
-                <div
-                    className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#008BFD]/20 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
-
-                <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold mb-2">12+</div>
-                            <div className="text-blue-400 text-xs uppercase tracking-widest font-bold">Campuses</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold mb-2">50k+</div>
-                            <div className="text-blue-400 text-xs uppercase tracking-widest font-bold">Items Sold</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold mb-2">$0</div>
-                            <div className="text-blue-400 text-xs uppercase tracking-widest font-bold">Listing Fees
+                            <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 mb-12">
+                                <img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                    className="h-10 md:h-14 cursor-pointer active:scale-95 transition-transform"
+                                    alt="Play Store"/>
                             </div>
-                        </div>
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold mb-2">100%</div>
-                            <div className="text-blue-400 text-xs uppercase tracking-widest font-bold">Verified</div>
-                        </div>
+                        </motion.div>
                     </div>
-                </div>
-            </section>
 
-            {/* Safety Footer */}
-            <section className="py-24 text-center px-6">
-                <div className="max-w-3xl mx-auto">
                     <div
-                        className="w-16 h-16 bg-slate-900 text-white rounded-2xl flex items-center justify-center text-2xl mx-auto mb-8">🛡️
+                        className="relative lg:absolute right-[-5%] md:right-[-10%] bottom-[-20px] md:bottom-[-120px] w-[110%] md:w-[80%] lg:w-[70%] mx-auto lg:mx-0 pointer-events-none">
+                        <motion.div initial={{x: 100, y: 50, opacity: 0}} animate={{x: 0, y: 0, opacity: 1}}
+                                    transition={{duration: 1.2}} className="flex justify-end items-end h-full">
+                            <img src="/Hand and iPhone 16 Agora.png"
+                                 className="w-full h-auto drop-shadow-[-20px_40px_80px_rgba(0,0,0,0.15)] object-contain origin-bottom-right"
+                                 alt="Agora App Interface"/>
+                        </motion.div>
                     </div>
-                    <h2 className="text-4xl font-bold mb-6">Your Safety, Handled.</h2>
-                    <p className="text-xl text-slate-500 leading-relaxed mb-10">
-                        Reporting systems, admin moderation, and local campus meetups ensure that scammers stay out and
-                        students stay safe.
-                    </p>
-                    <button
-                        className="bg-slate-900 text-white px-10 py-4 rounded-full font-bold hover:bg-slate-800 transition-all">
-                        Join Your Campus Agora
-                    </button>
                 </div>
             </section>
 
+            {/* --- 1. USER MANAGEMENT --- */}
+            <section id="features" className="py-20 bg-slate-50/50 px-6">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                    <div className="text-center lg:text-left">
+                        <span
+                            className="text-[#008BFD] font-black uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4 block">Identity</span>
+                        <h2 className="text-4xl md:text-6xl font-black mb-6 leading-tight">Verified Profiles.</h2>
+                        <p className="text-lg md:text-xl text-slate-500 mb-8 font-medium">Secure student registration
+                            via .edu email and ID verification. Manage your role as a student or admin.</p>
+                        <div className="grid grid-cols-2 gap-4 text-left font-bold text-slate-700">
+                            <div className="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm text-sm">🎓
+                                Student Only
+                            </div>
+                            <div className="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm text-sm">🛡️ ID
+                                Verified
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex justify-center">
+                        <motion.img whileInView={{scale: [0.95, 1], opacity: [0, 1]}} src="/iPhone 13 Pro.png"
+                                    className="w-full max-w-[320px] drop-shadow-2xl" alt="Profile"/>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- 2. ITEM & SERVICE LISTINGS --- */}
+            <section className="py-24 px-6 overflow-hidden">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+                    <div className="order-2 lg:order-1 relative flex justify-center">
+                        <motion.div whileInView={{y: [30, 0], opacity: [0, 1]}} transition={{duration: 0.8}}>
+                            <img src="/iPhone 13 Pro-1.png"
+                                 className="w-full max-w-[320px] md:max-w-[420px] drop-shadow-2xl" alt="Listing"/>
+                        </motion.div>
+                    </div>
+                    <div className="order-1 lg:order-2 text-center lg:text-left">
+                        <span
+                            className="text-[#008BFD] font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Marketplace</span>
+                        <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">Detailed Listings.</h2>
+                        <p className="text-lg md:text-xl text-slate-500 mb-10 font-medium">Post books, electronics, or
+                            clothes. Offer services like tutoring and assignment help with multiple images.</p>
+                        <ul className="space-y-4 text-left max-w-md mx-auto lg:mx-0 font-bold text-slate-700">
+                            <li className="flex gap-3 items-center"><span className="text-blue-500">✔</span> Condition &
+                                Category Filters
+                            </li>
+                            <li className="flex gap-3 items-center"><span className="text-blue-500">✔</span> Service
+                                Exchange Details
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- 3. DISCOVERY & SEARCH --- */}
+            <section
+                className="bg-[#008BFD] py-24 px-6 text-white rounded-[3rem] md:rounded-[5rem] mx-2 md:mx-6 overflow-hidden">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                    <div className="text-center lg:text-left">
+                        <span
+                            className="text-blue-200 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Discovery</span>
+                        <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">Campus-Specific Search.</h2>
+                        <p className="text-lg md:text-xl text-blue-50 mb-10">Search by keywords, filter by price range
+                            or college, and sort by newest or best price.</p>
+                        <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+                            {['By Category', 'By Condition', 'By University'].map(f => (
+                                <span key={f}
+                                      className="px-4 py-2 bg-white/10 rounded-full text-xs font-bold border border-white/20 whitespace-nowrap">{f}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex justify-center">
+                        <motion.img whileInView={{scale: [0.9, 1], opacity: [0, 1]}} src="/iPhone 13 Pro.png"
+                                    className="w-full max-w-[300px] md:max-w-[380px] drop-shadow-2xl" alt="Search"/>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- 4. IN-APP CHAT SYSTEM --- */}
+            <section className="py-24 px-6">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+                    <div className="order-2 lg:order-1 flex justify-center">
+                        <motion.img whileInView={{x: [-30, 0], opacity: [0, 1]}} src="/iPhone 13 Pro-2.png"
+                                    className="w-full max-w-[320px] drop-shadow-2xl" alt="Chat"/>
+                    </div>
+                    <div className="order-1 lg:order-2 text-center lg:text-left">
+                        <span
+                            className="text-[#008BFD] font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Communication</span>
+                        <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">Direct Messaging.</h2>
+                        <p className="text-lg md:text-xl text-slate-500 mb-8 font-medium">Communicate through an
+                            integrated chat system. Negotiate prices and coordinate meetups safely.</p>
+                        <div className="p-6 bg-slate-50 rounded-[2rem] border border-slate-100 inline-block text-left">
+                            <p className="text-[#008BFD] font-black text-sm mb-1 uppercase tracking-wider">Integrated
+                                Offer System</p>
+                            <p className="text-slate-600 text-xs font-medium">Make, accept, or decline offers inside the
+                                chat.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- 5. SAFETY & MODERATION --- */}
+            <section id="safety"
+                     className="bg-black py-20 md:py-32 px-6 text-white rounded-[2.5rem] md:rounded-[4rem] mx-2 md:mx-4 mb-20 overflow-hidden">
+                <div className="max-w-7xl mx-auto text-center">
+                    <span
+                        className="text-[#008BFD] font-black uppercase tracking-[0.3em] text-[10px] mb-6 block">Moderation</span>
+                    <h2 className="text-4xl md:text-7xl font-black mb-12 leading-tight">Secure & Trusted.</h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 text-left">
+                        {[
+                            {t: 'Report System', d: 'Flag suspicious listings or users instantly for admin review.'},
+                            {t: 'Admin Panel', d: 'Dedicated dashboard for deactivating listings and banning actors.'},
+                            {t: 'Secure Login', d: 'Role-based access (Student/Admin) for platform control.'}
+                        ].map((item, i) => (
+                            <div key={i}
+                                 className="p-8 bg-white/5 rounded-[2rem] border border-white/10 hover:border-blue-500/50 transition-colors">
+                                <h4 className="text-xl font-bold mb-4 text-[#008BFD]">{item.t}</h4>
+                                <p className="text-sm text-slate-400 leading-relaxed font-medium">{item.d}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* --- FOOTER --- */}
+            <footer className="py-16 md:py-24 bg-white px-6 border-t border-slate-100">
+                <div
+                    className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 md:gap-16">
+                    <div>
+                        <Link href="/products/agora" className="flex items-center gap-2 mb-6 group">
+                            <div
+                                className="w-10 h-10 bg-[#008BFD] rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-500/10 transition-transform group-hover:scale-110">A
+                            </div>
+                            <span className="font-bold text-2xl tracking-tight">Agora</span>
+                        </Link>
+                        <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.2em]">Building the circular
+                            campus economy.</p>
+                    </div>
+                    <div className="flex gap-16 md:gap-24">
+                        <div className="space-y-4">
+                            <p className="font-black text-[10px] uppercase tracking-widest text-slate-900">Company</p>
+                            <div className="flex flex-col gap-3 text-slate-500 text-sm font-bold">
+                                <Link href="/products/agora/about"
+                                      className="text-left hover:text-[#008BFD] transition-colors">About Us</Link>
+                                <Link href="/products/agora/universities"
+                                      className="text-left hover:text-[#008BFD] transition-colors">Universities</Link>
+                                <a href="#safety" onClick={(e) => scrollToSection(e, 'safety')}
+                                   className="text-left hover:text-[#008BFD] transition-colors">Safety</a>
+                            </div>
+                        </div>
+                        <div className="space-y-4">
+                            <p className="font-black text-[10px] uppercase tracking-widest text-slate-900">Support</p>
+                            <div className="flex flex-col gap-3 text-slate-500 text-sm font-bold">
+                                <a href="mailto:hello@spicalabs.com"
+                                   className="text-slate-900 hover:text-[#008BFD] transition-colors">hello@spicalabs.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    className="max-w-7xl mx-auto mt-20 pt-8 border-t border-slate-50 flex justify-between items-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-300">
+                    <span>© 2026 SPICALABS</span>
+                </div>
+            </footer>
         </main>
     );
 }

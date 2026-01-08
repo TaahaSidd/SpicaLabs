@@ -47,17 +47,17 @@ export default function Home() {
                 <div className="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-[0.2em]">
                     <Link href="/products/gallery"
                           className="text-white/80 hover:text-white transition-all drop-shadow-md">
-                        The Lab
+                        Apps
                     </Link>
                     <Link href="/about" className="text-white/80 hover:text-white transition-all drop-shadow-md">
-                        The Architect
+                        About
                     </Link>
                 </div>
 
                 {/* Contact stays as a scroll-link or mailto */}
                 <a href="#contact"
                    className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-[#274C77] transition-all">
-                    Contact
+                    Get in touch
                 </a>
             </div>
         </nav>
