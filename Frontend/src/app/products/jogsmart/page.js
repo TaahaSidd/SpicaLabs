@@ -1,167 +1,117 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import {motion} from 'framer-motion';
 
 export default function JogSmartPage() {
     return (
-        <main
-            className="bg-[#050607] min-h-screen text-white font-sans selection:bg-[#FACC15] selection:text-black overflow-x-hidden">
+        <main className="bg-[#0A0A0A] min-h-screen text-[#E0E0E0] font-mono selection:bg-[#FACC15] selection:text-black overflow-x-hidden">
 
-            {/* CLEAN NAV */}
-            <nav
-                className="fixed top-0 w-full z-[100] border-b border-white/5 bg-[#050607]/80 backdrop-blur-md px-6 py-5">
-                <div className="max-w-7xl mx-auto flex justify-between items-center">
-                    <Link href="/inventory"
-                          className="font-bold text-sm tracking-widest uppercase hover:text-[#FACC15] transition-colors">
-                        <span className="ml-2">JogSmart</span>
-                    </Link>
-                    <div className="flex items-center gap-4">
-                        <span
-                            className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em]">Research_Phase_01</span>
-                    </div>
-                </div>
+            {/* LAB GRID */}
+            <div className="fixed inset-0 z-0 opacity-[0.03] pointer-events-none"
+                 style={{
+                     backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
+                     backgroundSize: '40px 40px'
+                 }}>
+            </div>
+
+            {/* NAV */}
+            <nav className="relative z-10 p-8 flex justify-between items-center max-w-7xl mx-auto uppercase">
+                <Link href="/"
+                      className="group flex items-center gap-3 text-sm font-black tracking-widest text-white hover:text-[#FACC15] transition-all">
+                    <span className="group-hover:-translate-x-2 transition-transform">←</span> Back
+                </Link>
+                <span className="text-xs font-black tracking-widest text-[#FACC15]/50 border border-[#FACC15]/20 px-3 py-1">
+                    Status: Architectural Proposal
+                </span>
             </nav>
 
-            {/* RESHAPED HERO: THE BLUEPRINT */}
-            <section className="relative pt-44 md:pt-60 pb-20 px-6 border-b border-white/5">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid lg:grid-cols-2 gap-16 items-start">
-                        <motion.div
-                            initial={{opacity: 0, y: 20}}
-                            animate={{opacity: 1, y: 0}}
-                            transition={{duration: 0.8}}
-                        >
-                            <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase mb-10 leading-[0.85]">
-                                Mapping <br/>the <span className="text-[#FACC15]">Dark.</span>
-                            </h1>
-                            <p className="text-xl md:text-2xl text-white/50 font-medium leading-snug max-w-lg mb-12">
-                                We are designing a spatial intelligence tool that identifies safe running paths through
-                                community-verified lighting and hazard data.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-6">
-                                <button
-                                    className="bg-[#FACC15] text-black px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform">
-                                    Join the Build
-                                </button>
-                                <div className="flex flex-col justify-center">
-                                    <span
-                                        className="text-[10px] font-bold uppercase tracking-widest text-white/40">Status</span>
-                                    <span className="text-sm font-bold uppercase italic">Pre-Alpha Concept</span>
-                                </div>
-                            </div>
-                        </motion.div>
+            {/* HERO */}
+            <header className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-20">
+                <p className="text-[#FACC15] text-sm font-black uppercase tracking-widest mb-6">Concept Brief 003</p>
+                <h1 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.8] text-white uppercase mb-12">
+                    Jog<span className="text-[#FACC15]">Smart.</span>
+                </h1>
 
-                        {/* Visual Logic Diagram (No fake stats) */}
-                        <div className="relative border border-white/10 rounded-[3rem] p-10 bg-white/[0.02]">
-                            <div className="space-y-12">
-                                <div className="flex items-start gap-6">
-                                    <div
-                                        className="w-12 h-12 rounded-full border border-[#FACC15] flex items-center justify-center font-bold text-[#FACC15] text-xs">01
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold uppercase tracking-tight text-lg mb-1">Environmental
-                                            Input</h4>
-                                        <p className="text-sm text-white/40">Community members flag street-level data:
-                                            light outages, path hazards, and density.</p>
-                                    </div>
-                                </div>
-                                <div className="h-12 w-px bg-gradient-to-b from-[#FACC15] to-transparent ml-6"></div>
-                                <div className="flex items-start gap-6">
-                                    <div
-                                        className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center font-bold text-white/20 text-xs">02
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold uppercase tracking-tight text-lg mb-1 text-white/40">Spatial
-                                            Analysis</h4>
-                                        <p className="text-sm text-white/20 italic">Logic engine currently under
-                                            development to verify report accuracy and weight.</p>
-                                    </div>
-                                </div>
+                <div className="grid md:grid-cols-2 gap-16 items-start border-l-4 border-[#FACC15] pl-8">
+                    <p className="text-white/60 text-xl md:text-2xl font-medium font-sans leading-relaxed">
+                        A proposal for a spatial intelligence engine that maps urban safety. The core logic involves cross-referencing streetlamp density with real-time traffic timing to generate verified safe paths.
+                    </p>
+                    <div className="bg-white/5 border border-white/10 p-8">
+                        <p className="text-[#FACC15] text-xs font-black uppercase tracking-widest mb-4">Solo Development Status</p>
+                        <p className="text-sm text-white/40 leading-relaxed font-sans">
+                            This project is a conceptual study in geospatial data weighting. Implementation is currently paused. This page documents the intended architecture and logic flow for future reference.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            {/* THE CORE LOGIC ENGINE */}
+            <section className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+                <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 overflow-hidden">
+                    <div className="bg-[#0A0A0A] p-10 space-y-6">
+                        <div className="w-10 h-px bg-[#FACC15]"></div>
+                        <h4 className="text-xl font-black text-white uppercase tracking-tighter">Lumen Data</h4>
+                        <p className="text-sm text-white/40 leading-relaxed font-sans uppercase">
+                            Proposed integration with OpenStreetMap to calculate streetlamp proximity scores. Higher density equals lower path risk.
+                        </p>
+                    </div>
+                    <div className="bg-[#0A0A0A] p-10 space-y-6 border-x border-white/10">
+                        <div className="w-10 h-px bg-[#FACC15]"></div>
+                        <h4 className="text-xl font-black text-white uppercase tracking-tighter">Traffic Flow</h4>
+                        <p className="text-sm text-white/40 leading-relaxed font-sans uppercase">
+                            Timing based logic to avoid high velocity traffic zones during peak hours, favoring pedestrian only nodes.
+                        </p>
+                    </div>
+                    <div className="bg-[#0A0A0A] p-10 space-y-6">
+                        <div className="w-10 h-px bg-[#FACC15]"></div>
+                        <h4 className="text-xl font-black text-white uppercase tracking-tighter">Safe Routing</h4>
+                        <p className="text-sm text-white/40 leading-relaxed font-sans uppercase">
+                            A custom routing algorithm modified to prioritize security weight over the shortest possible distance.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* TECH SPEC BOX */}
+            <section className="relative z-10 max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+                <div className="grid md:grid-cols-2 gap-24">
+                    <div className="space-y-10">
+                        <h3 className="text-white text-3xl font-black uppercase tracking-tighter">Project Evolution</h3>
+                        <p className="text-white/50 text-lg font-sans leading-relaxed">
+                            Running at night in urban environments should not be a gamble. I am exploring how to turn static map data into a dynamic safety score. It is a complex solo build, but the underlying logic is sound.
+                        </p>
+                    </div>
+
+                    <div className="bg-white/5 p-10 border border-white/10">
+                        <h4 className="text-[#FACC15] text-xs font-black uppercase tracking-widest mb-8">Proposed Stack</h4>
+                        <div className="space-y-6 text-sm font-black uppercase tracking-widest">
+                            <div className="flex justify-between border-b border-white/5 pb-2">
+                                <span className="text-white/30 text-xs">Mobile Engine</span>
+                                <span>React Native</span>
+                            </div>
+                            <div className="flex justify-between border-b border-white/5 pb-2">
+                                <span className="text-white/30 text-xs">Map Service</span>
+                                <span>Mapbox SDK</span>
+                            </div>
+                            <div className="flex justify-between border-b border-white/5 pb-2">
+                                <span className="text-white/30 text-xs">Traffic API</span>
+                                <span>TomTom Real Time</span>
+                            </div>
+                            <div className="flex justify-between border-b border-white/5 pb-2">
+                                <span className="text-white/30 text-xs">Spatial Logic</span>
+                                <span>GeoLib Turf.js</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
-            {/* DATA GRID: THE PROPOSED UTILITY */}
-            <section className="py-24 px-6">
-                <div className="max-w-7xl mx-auto">
-                    <div
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5 rounded-[2rem] md:rounded-[3rem] overflow-hidden">
-
-                        <div className="bg-[#050607] p-10 flex flex-col justify-between min-h-[300px]">
-                            <h3 className="text-xl font-black uppercase italic mb-4">Lumen Check</h3>
-                            <p className="text-sm text-white/40 leading-relaxed">
-                                A proposed system for runners to verify streetlight functionality in real-time to
-                                prevent "Blind Running."
-                            </p>
-                        </div>
-
-                        <div className="bg-[#050607] p-10 flex flex-col justify-between min-h-[300px]">
-                            <h3 className="text-xl font-black uppercase italic mb-4">Crowd Pulse</h3>
-                            <p className="text-sm text-white/40 leading-relaxed">
-                                Using aggregated GPS pings to determine if a route is "Socially Active" or "Isolated."
-                            </p>
-                        </div>
-
-                        <div className="bg-[#050607] p-10 flex flex-col justify-between min-h-[300px]">
-                            <h3 className="text-xl font-black uppercase italic mb-4">Hazard Log</h3>
-                            <p className="text-sm text-white/40 leading-relaxed">
-                                One-tap community reporting for temporary obstacles like construction or slippery
-                                surfaces.
-                            </p>
-                        </div>
-
-                        <div className="bg-[#050607] p-10 flex flex-col justify-between min-h-[300px]">
-                            <h3 className="text-xl font-black uppercase italic mb-4">Route Audit</h3>
-                            <p className="text-sm text-white/40 leading-relaxed">
-                                Every route will generate a safety coefficient based on verified environmental inputs.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            {/* STATUS FEED */}
-            <section className="py-20 px-6 max-w-[1400px] mx-auto">
-                <div className="bg-[#111] p-1 border border-white/5">
-                    <div className="border border-white/10 p-6 md:p-10 flex flex-col md:flex-row justify-between items-center gap-10">
-                        <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-4">
-                                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                                <span className="text-[10px] font-black uppercase tracking-[0.2em]">System_Current_State</span>
-                            </div>
-                            <h2 className="text-3xl font-black uppercase italic mb-4">Building the Node.</h2>
-                            <p className="text-sm text-white/40 font-sans max-w-md">
-                                JogSmart is currently in the R&D phase at SpicaLab. We are stress-testing the geofencing engine to ensure 0ms latency in hazard reporting.
-                            </p>
-                        </div>
-                        <div className="w-full md:w-auto">
-                            <form className="flex flex-col sm:flex-row gap-2">
-                                <input
-                                    type="email"
-                                    placeholder="USER_EMAIL@DOMAIN"
-                                    className="bg-black border border-white/10 px-6 py-4 text-xs focus:border-[#FACC15] focus:outline-none w-full sm:w-64"
-                                />
-                                <button className="bg-white text-black px-8 py-4 font-black text-[10px] uppercase tracking-widest hover:bg-[#FACC15] transition-colors">
-                                    Queue_Access
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
 
             {/* FOOTER */}
-            <footer className="py-12 px-6 border-t border-white/5">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-                    <span className="font-bold text-xs uppercase tracking-widest">JogSmart</span>
-                    <p className="text-[9px] text-white/20 font-bold uppercase tracking-[0.2em]">© 2026 Designed by
-                        Taaha Siddiqui</p>
-                </div>
+            <footer className="relative z-10 py-40 text-center border-t border-white/5">
+                <Link href="/"
+                      className="bg-[#FACC15] text-black px-16 py-6  font-black uppercase tracking-widest text-sm hover:bg-white transition-all shadow-2xl shadow-[#FACC15]/10">
+                    Return to Lab
+                </Link>
             </footer>
         </main>
     );

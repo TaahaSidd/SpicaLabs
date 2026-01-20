@@ -13,7 +13,7 @@ export default function InventoryPage() {
             status: "Concept",
             description: "Passive rhythm-based expense tracking.",
             color: "#2DD4BF",
-            tech: "Java / Spring",
+            tech: "Java / Spring / React-Native",
             path: "/products/pulse"
         },
         {
@@ -22,13 +22,13 @@ export default function InventoryPage() {
             status: "Beta",
             description: "Trust-based university ecosystem.",
             color: "#008BFD",
-            tech: "Java / Spring",
+            tech: "Java / Spring / React-Native",
             path: "/products/agora"
         },
         {
             name: "AirVista",
             category: "Environment",
-            status: "Concept",
+            status: "Archived",
             description: "Real-time visualization systems.",
             color: "#3B82F6",
             tech: "Java / React",
@@ -38,10 +38,28 @@ export default function InventoryPage() {
             name: "JogSmart",
             category: "Health",
             status: "Concept",
-            description: "Rhythm-based activity coaching.",
+            description: "Intelligent routing engine for urban athletes. Generates safe paths based on real-time traffic density, lighting conditions, and user-defined scheduling.",
             color: "#FACC15",
-            tech: "React Native",
+            tech: "React Native / Google Maps SDK / GeoLib",
             path: "/products/jogsmart"
+        },
+        {
+            name: "OOHify",
+            category: "AdTech",
+            status: "Concept",
+            description: "Programmatic DOOH aggregator. Managing physical attention through high-speed API protocols.",
+            color: "#FF3E00",
+            tech: "Next.js / Python / Google Maps API",
+            path: "/products/oohify"
+        },
+        {
+            name: "Lyra",
+            category: "DevTools",
+            status: "Concept",
+            description: "Technical content engine. Converting complex repository structures into high-signal engineering insights.",
+            color: "#00F5FF",
+            tech: "Java / Spring AI / React",
+            path: "/products/lyra"
         }
     ];
 
@@ -59,18 +77,18 @@ export default function InventoryPage() {
                  }}>
             </div>
 
+            {/* NAV - BUMPED TO text-xs/sm */}
             <nav className="relative z-10 p-6 md:p-8 flex justify-between items-center max-w-7xl mx-auto">
                 <Link href="/"
-                      className="group flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.3em] text-white/40 hover:text-teal-400 transition-all">
-                    <span className="group-hover:-translate-x-1 transition-transform">←</span> Terminal
+                      className="group flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-white/40 hover:text-teal-400 transition-all">
+                    <span className="group-hover:-translate-x-1 transition-transform">←</span> Back
                 </Link>
-                {/* Horizontal Scroll for categories on Mobile */}
-                <div className="flex gap-4 items-center overflow-x-auto no-scrollbar ml-4">
+                <div className="flex gap-6 items-center overflow-x-auto no-scrollbar ml-4">
                     {categories.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setFilter(cat)}
-                            className={`text-[8px] md:text-[9px] uppercase tracking-widest whitespace-nowrap transition-all ${filter === cat ? 'text-teal-400 font-bold' : 'text-white/20 hover:text-white/50'}`}
+                            className={`text-[10px] md:text-xs uppercase tracking-widest whitespace-nowrap transition-all font-black ${filter === cat ? 'text-teal-400' : 'text-white/20 hover:text-white'}`}
                         >
                             {cat}
                         </button>
@@ -80,10 +98,9 @@ export default function InventoryPage() {
 
             <header className="relative z-10 max-w-7xl mx-auto px-6 pt-10 md:pt-16 pb-12">
                 <motion.div initial={{opacity: 0, y: 10}} animate={{opacity: 1, y: 0}}>
-                    <p className="text-teal-400 text-[9px] font-black uppercase tracking-[0.5em] mb-4">Query_Type:
-                        Project_Archive</p>
+                    <p className="text-teal-400 text-xs font-black uppercase tracking-[0.5em] mb-4">Query Type: Project Archive</p>
                     <h1 className="text-5xl sm:text-7xl md:text-[9rem] font-black tracking-tighter leading-[0.8] text-white uppercase">
-                        The <span className="text-white/10 italic">Lab.</span>
+                        The <span className="text-white/10">Lab.</span>
                     </h1>
                 </motion.div>
             </header>
@@ -102,17 +119,15 @@ export default function InventoryPage() {
                             >
                                 <Link href={item.path} className="group block h-full">
                                     <div
-                                        className="h-full bg-white/[0.02] border border-white/5 p-6 md:p-8 rounded-sm flex flex-col justify-between hover:bg-teal-400/[0.02] hover:border-teal-400/40 transition-all duration-500 relative overflow-hidden">
+                                        className="h-full bg-white/[0.02] border border-white/5 p-6 md:p-8  flex flex-col justify-between hover:bg-teal-400/[0.02] hover:border-teal-400/40 transition-all duration-500 relative overflow-hidden">
 
-                                        {/* Hover Scanline Effect (Teal) */}
                                         <div
                                             className="absolute top-0 left-0 w-full h-[1px] bg-teal-400/30 -translate-y-full group-hover:translate-y-[500px] transition-all duration-[2s] ease-in-out opacity-0 group-hover:opacity-100"></div>
 
                                         <div>
                                             <div className="flex justify-between items-start mb-8 md:mb-10">
                                                 <div className="relative">
-                                                    <div
-                                                        className="absolute inset-0 bg-teal-400/10 blur-md rounded-sm"></div>
+                                                    <div className="absolute inset-0 bg-teal-400/10 blur-md rounded-sm"></div>
                                                     <div
                                                         className="relative w-10 h-10 md:w-12 md:h-12 rounded-sm flex items-center justify-center text-black font-black text-xs md:text-sm bg-teal-400"
                                                         style={{backgroundColor: item.color}}>
@@ -120,33 +135,36 @@ export default function InventoryPage() {
                                                     </div>
                                                 </div>
                                                 <div className="text-right">
-                                                    <p className="text-[7px] text-white/20 uppercase tracking-widest mb-1">Status</p>
+                                                    {/* Bumped Status text */}
+                                                    <p className="text-[10px] text-white/20 uppercase font-black tracking-widest mb-1">Status</p>
                                                     <span
-                                                        className={`text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded-sm border ${item.status === 'Beta' ? 'text-teal-400 border-teal-400/30' : 'text-white/40 border-white/10'}`}>
+                                                        className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-sm border-2 ${item.status === 'Beta' ? 'text-teal-400 border-teal-400/40' : 'text-white/40 border-white/10'}`}>
                                                         {item.status}
                                                     </span>
                                                 </div>
                                             </div>
 
-                                            <p className="text-[8px] text-teal-400 font-bold uppercase tracking-[0.2em] mb-2">{item.category}</p>
-                                            <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-white mb-4 group-hover:text-teal-400 transition-colors uppercase">{item.name}</h2>
-                                            <p className="text-white/40 text-xs md:text-sm leading-relaxed font-sans mb-6 line-clamp-2">
+                                            {/* Bumped Category text */}
+                                            <p className="text-[10px] text-teal-400 font-black uppercase tracking-[0.2em] mb-2">{item.category}</p>
+                                            <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-white mb-4 group-hover:text-teal-400 transition-colors uppercase leading-tight">{item.name}</h2>
+                                            <p className="text-white/50 text-sm md:text-base leading-relaxed font-sans mb-6 line-clamp-2">
                                                 {item.description}
                                             </p>
                                         </div>
 
-                                        <div className="pt-6 border-t border-white/5">
+                                        <div className="pt-6 border-t border-white/10">
                                             <div className="flex justify-between items-center">
                                                 <div className="flex flex-col">
+                                                    {/* Bumped Technical Stack text */}
                                                     <span
-                                                        className="text-[7px] text-white/20 uppercase tracking-widest mb-1">Technical_Stack</span>
+                                                        className="text-[10px] text-white/30 uppercase font-black tracking-widest mb-1">Technical_Stack</span>
                                                     <span
-                                                        className="text-[9px] font-mono text-white/60 uppercase">{item.tech}</span>
+                                                        className="text-xs font-bold text-white uppercase tracking-tight">{item.tech}</span>
                                                 </div>
                                                 <div
-                                                    className="w-8 h-8 rounded-full border border-white/5 flex items-center justify-center group-hover:bg-teal-500 group-hover:border-teal-500 transition-all duration-500">
+                                                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-teal-500 group-hover:border-teal-500 transition-all duration-500">
                                                     <span
-                                                        className="text-white group-hover:text-black transition-colors text-xs">→</span>
+                                                        className="text-white group-hover:text-black transition-colors text-sm">→</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -158,12 +176,53 @@ export default function InventoryPage() {
                 </motion.div>
             </section>
 
-            <footer className="relative z-10 border-t border-white/5 py-8 px-6 md:px-10">
-                <div
-                    className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 opacity-20 text-[8px] uppercase tracking-[0.4em]">
-                    <span>Entries_Logged: {projects.length}</span>
-                    <span className="hidden md:inline">Architecture_V2.0</span>
-                    <span>©_2026_System_Stable</span>
+            {/* FOOTER - CLEAN INDUSTRIAL GRID */}
+            <footer className="relative z-10 bg-[#080808] border-t border-white/5 pt-24 pb-12 px-6 md:px-12">
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+
+                        {/* BRAND SECTION */}
+                        <div className="md:col-span-2">
+                            <div className="flex items-center gap-3 mb-6">
+                                <span className="text-sm font-black tracking-[0.3em] uppercase text-white">SpicaLabs</span>
+                            </div>
+                            <p className="text-white/40 text-sm font-medium font-sans leading-relaxed max-w-xs">
+                                Software engineering studio focused on high-performance Java systems and cross-platform architecture.
+                            </p>
+                        </div>
+
+                        {/* INDEX SECTION */}
+                        <div>
+                            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-teal-400 mb-6">Navigation</h4>
+                            <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
+                                <li><Link href="/" className="text-white/40 hover:text-white transition-colors">Home</Link></li>
+                                <li><Link href="/inventory" className="text-white/40 hover:text-white transition-colors">Inventory</Link></li>
+                                <li><Link href="/about" className="text-white/40 hover:text-white transition-colors">Archive</Link></li>
+                            </ul>
+                        </div>
+
+                        {/* CONNECT SECTION */}
+                        <div>
+                            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-teal-400 mb-6">Uplink</h4>
+                            <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
+                                <li><a href="https://github.com/TaahaSidd" target="_blank" className="text-white/40 hover:text-white transition-colors">GitHub</a></li>
+                                <li><a href="mailto:taaha@system.dev" className="text-white/40 hover:text-white transition-colors">Email</a></li>
+                                <li><span className="text-white/20">LinkedIn</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* BOTTOM STRIP - NO UNDERSCORES */}
+                    <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div className="flex gap-8 text-[10px] font-black uppercase tracking-widest text-white/20">
+                            <span>Version 2.0.4</span>
+                            <span>Environment: Production</span>
+                            <span>Latency: 24ms</span>
+                        </div>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-white/40">
+                            © 2026 SpicaLabs Studio. All rights reserved.
+                        </div>
+                    </div>
                 </div>
             </footer>
         </main>
